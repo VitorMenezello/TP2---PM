@@ -1,6 +1,9 @@
 package game;
 
 import deck.*;
+import player.AutoPlayer;
+import player.HumanPlayer;
+import player.Player;
 
 public class Game {
     private CardDeck drawingStack;

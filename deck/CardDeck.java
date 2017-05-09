@@ -5,30 +5,32 @@ import java.util.Random;
 
 public class CardDeck {
     private ArrayList<Card> deck;
+    private int numDecks;
     
     public CardDeck(int numDecks){
         this.deck = new ArrayList();
-
-        initialiseDeck(numDecks);
+        this.numDecks = numDecks;
+        initialiseDeck();
     }
     
-    private void initialiseDeck(int numDecks){
-        fillSuit("Clubs", numDecks);
-        fillSuit("Hearts", numDecks);
-        fillSuit("Diamonds", numDecks);
-        fillSuit("Spades", numDecks);
+    private void initialiseDeck(){
+        fillSuit("Clubs");
+        fillSuit("Hearts");
+        fillSuit("Diamonds");
+        fillSuit("Spades");
     }
     
-    private void fillSuit(String suit, int numDecks){
+    private void fillSuit(String suit){
         int suitSize = 13;
-        while (numDecks > 0) {
+        int numDecks_ = this.numDecks;
+        while (numDecks_ > 0) {
             for(int i = 0; i < suitSize; i++){
                 Card card = new Card();
                 card.setSuit(suit);
                 card.setValue(Integer.toString(i + 1));
                 this.deck.add(card);
             }
-            numDecks--;
+            numDecks_--;
         }
 
     }

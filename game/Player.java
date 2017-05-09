@@ -3,7 +3,7 @@ package game;
 import deck.*;
 import java.util.ArrayList;
 
-public class Player {
+public abstract class Player {
     private ArrayList<Card> hand;
     private int numCards;
 
@@ -18,11 +18,6 @@ public class Player {
         this.hand.add(card);
     }
 
-    /* Choose a card to play according to the top of the playing stack */
-    public void playCard(Card openCard) {
-        // Choose which card to play
-    }
-
     public ArrayList<Card> getHand() {
         return this.hand;
     }
@@ -30,4 +25,7 @@ public class Player {
     public int getNumCards() {
         return this.numCards;
     }
+
+    /* Choose a card to play according to the top of the playing stack */
+    public abstract void playCard(Card openCard);
 }

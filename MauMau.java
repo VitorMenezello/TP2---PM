@@ -27,10 +27,13 @@ public class MauMau {
 
         // Initialize a new game
         int numPlayers = 4;
-        Game game = new Game(numPlayers);
+        Game game = Game.getInstance(numPlayers);
 
         // Play the game
         game.play();
+
+        System.out.println("Length: " + game.getPlayers().length);
+
     }
 
 }

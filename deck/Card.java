@@ -5,7 +5,7 @@ public class Card {
     String value;
     boolean shuffled;
     boolean open;
-    
+
     public Card() {
         this.suit = "";
         this.value = "";
@@ -18,12 +18,12 @@ public class Card {
         this.shuffled = false;
         this.open = false;
     }
-    
-    void setSuit(String su){
+
+    public void setSuit(String su){
         this.suit = su;
     }
-    
-    void setValue(String val){
+
+    public void setValue(String val){
         switch (val) {
             case "1":
                 this.value = "A"; break;
@@ -38,28 +38,28 @@ public class Card {
         }
     }
 
-    void setShuffled(boolean sh){
+    public void setShuffled(boolean sh){
         this.shuffled = sh;
     }
-    
-    void setOpen(boolean op){
+
+    public void setOpen(boolean op){
         this.open = op;
     }
-    
+
     public String getSuit(){
         return this.suit;
     }
-    
+
     public String getValue(){
         return this.value;
     }
-    
+
     public boolean isShuffled(){
         return this.shuffled;
     }
-    
+
     public boolean isOpen(){
         return this.open;
     }
-    
+
 }

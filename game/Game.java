@@ -5,6 +5,8 @@ import player.AutoPlayer;
 import player.HumanPlayer;
 import player.Player;
 
+import java.util.ArrayList;
+
 public class Game {
     private CardDeck drawingStack;
     private CardDeck playingStack;
@@ -64,6 +66,27 @@ public class Game {
 
     /* Play a game of Mau-mau */
     public void play() {
+        // All players receive 7 cards
+        for (int i = 0; i < 7; i++){
+            this.players[i].drawCard(drawingStack);
+        }
+
+        // Printing hands
+        ArrayList<Card> hand;
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Jogador " + i + ":");
+            hand = this.players[i].getHand();
+            for (int j = 0; j < 7; j++) {
+                System.out.println(hand);
+                //System.out.print("Carta " + j + ": " + this.players[i].hand.getValue() + card.getSuit());
+            }
+        }
+        // One card from the drawing stack is opened and placed onto the playing stack
+        Card drawnCard = this.drawingStack.drawCard();
+        drawnCard.setOpen(true);
+        this.playingStack.addCard(drawnCard);
+
+        // To do
         System.out.println("Method Game.play() not implemented...");
     }
 }

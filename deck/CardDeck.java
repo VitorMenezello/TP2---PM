@@ -6,20 +6,20 @@ import java.util.Random;
 public class CardDeck {
     private ArrayList<Card> deck;
     private int numDecks;
-    
+
     public CardDeck(int numDecks){
         this.deck = new ArrayList();
         this.numDecks = numDecks;
         initialiseDeck();
     }
-    
+
     private void initialiseDeck(){
         fillSuit("Clubs");
         fillSuit("Hearts");
         fillSuit("Diamonds");
         fillSuit("Spades");
     }
-    
+
     private void fillSuit(String suit){
         int suitSize = 13;
         int numDecks_ = this.numDecks;
@@ -57,13 +57,13 @@ public class CardDeck {
         this.deck.addAll(shuffledDeck);
         resetDeck();
     }
-    
+
     public void resetDeck() {
         for(int i = 0; i < this.deck.size(); i++){
-           Card deckCard = new Card();
-           deckCard = (Card) this.deck.get(i);
-           deckCard.setShuffled(false);
-           deckCard.setOpen(false);
+            Card deckCard = new Card();
+            deckCard = (Card) this.deck.get(i);
+            deckCard.setShuffled(false);
+            deckCard.setOpen(false);
             this.deck.set(i, deckCard);
         }
     }

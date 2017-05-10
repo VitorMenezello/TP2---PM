@@ -62,4 +62,8 @@ public class Card {
         return this.open;
     }
 
+    public String toString() {
+        return this.value + " " + this.suit;
+    }
+
 }

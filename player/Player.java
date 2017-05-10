@@ -16,6 +16,7 @@ public abstract class Player {
     public void drawCard(CardDeck drawingStack) {
         Card card = drawingStack.drawCard();
         this.hand.add(card);
+        this.numCards++;
     }
 
     public ArrayList<Card> getHand() {

@@ -32,7 +32,7 @@ public class MauMau {
         // Play the game
         game.play();
 
-        System.out.println("Length: " + game.getPlayers().length);
+        //System.out.println("Length: " + game.getPlayers().length);
 
     }
 

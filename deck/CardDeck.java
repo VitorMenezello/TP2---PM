@@ -14,23 +14,23 @@ public class CardDeck {
     }
 
     private void initialiseDeck(){
-        fillSuit("Clubs");
-        fillSuit("Hearts");
-        fillSuit("Diamonds");
-        fillSuit("Spades");
+        fillSuit("Paus");
+        fillSuit("Copas");
+        fillSuit("Ouros");
+        fillSuit("Espadas");
     }
 
     private void fillSuit(String suit){
         int suitSize = 13;
-        int numDecks_ = this.numDecks;
-        while (numDecks_ > 0) {
+        int numDecks = this.numDecks;
+        while (numDecks > 0) {
             for(int i = 0; i < suitSize; i++){
                 Card card = new Card();
                 card.setSuit(suit);
-                card.setValue(Integer.toString(i + 1));
+                card.setValue(i + 1);
                 this.deck.add(card);
             }
-            numDecks_--;
+            numDecks--;
         }
 
     }
@@ -43,8 +43,7 @@ public class CardDeck {
             do {
                 cardReplaced = false;
                 int selectedCardIndex = ((Math.abs(random.nextInt()) % this.deck.size()));
-                Card deckCard = new Card();
-                deckCard = (Card) this.deck.get(selectedCardIndex);
+                Card deckCard = this.deck.get(selectedCardIndex);
                 if(deckCard.isShuffled() == false) {
                     deckCard.setShuffled(true);
                     this.deck.set(selectedCardIndex, deckCard);
@@ -60,8 +59,7 @@ public class CardDeck {
 
     public void resetDeck() {
         for(int i = 0; i < this.deck.size(); i++){
-            Card deckCard = new Card();
-            deckCard = (Card) this.deck.get(i);
+            Card deckCard = this.deck.get(i);
             deckCard.setShuffled(false);
             deckCard.setOpen(false);
             this.deck.set(i, deckCard);
@@ -98,4 +96,7 @@ public class CardDeck {
         this.deck.add(0, card);
     }
 
+    public Card getTopCard() {
+        return this.deck.get(0);
+    }
 }

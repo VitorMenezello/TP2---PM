@@ -2,17 +2,18 @@ package deck;
 
 public class Card {
     String suit;
-    String value;
+    int value;
     boolean shuffled;
     boolean open;
 
     public Card() {
         this.suit = "";
-        this.value = "";
+        this.value = 0;
         this.shuffled = false;
         this.open = false;
     }
-    public Card(String su, String val) {
+
+    public Card(String su, int val) {
         suit = su;
         value = val;
         this.shuffled = false;
@@ -23,19 +24,8 @@ public class Card {
         this.suit = su;
     }
 
-    public void setValue(String val){
-        switch (val) {
-            case "1":
-                this.value = "A"; break;
-            case "11":
-                this.value = "J"; break;
-            case "12":
-                this.value = "Q"; break;
-            case "13":
-                this.value = "K"; break;
-            default:
-                this.value = val;
-        }
+    public void setValue(int val){
+        this.value = val;
     }
 
     public void setShuffled(boolean sh){
@@ -50,7 +40,7 @@ public class Card {
         return this.suit;
     }
 
-    public String getValue(){
+    public int getValue(){
         return this.value;
     }
 

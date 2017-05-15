@@ -1,13 +1,8 @@
 package game;
 
-import com.sun.jmx.snmp.agent.SnmpUserDataFactory;
 import deck.*;
 import player.*;
 import printer.*;
-
-import java.util.ArrayList;
-
-import static java.lang.Thread.*;
 
 public class Game {
     /* Game attributes */
@@ -142,6 +137,17 @@ public class Game {
         return false;
     }
 
+    // Prints who won the game
+    public void printWinner(){
+        int winnerIndex = 0;
+        for (int i = 0; i < this.numPlayers; i++){
+            if (this.players[i].getNumCards() == 0){
+                winnerIndex = i;
+            }
+        }
+        this.printer.printWinner(winnerIndex);
+    }
+
     /* Special cards */
     // Ace: skips next player's turn
     public void aceCard(){
@@ -178,7 +184,6 @@ public class Game {
     public void sevenCard(){
         this.activeSeven = true;
         this.totalSevens++;
-        //drawCard(2);
     }
 
     // The player can play a seven and the next player draws the total of sevens
@@ -247,7 +252,7 @@ public class Game {
 
     /* Game actions */
     // Checks if drawing stack is empty
-    public void isDeckEmpty(){
+    public void deckEmpty(){
         if (this.drawingStack.getDeck().size() == 0){
             reShuffle();
         }
@@ -288,7 +293,6 @@ public class Game {
         Card topCard = this.playingStack.getTopCard();
         if ((topCard.getValue() == 7)&&(this.activeSeven)){
             if (chosenCard.getValue() == 7){
-                this.totalSevens++;
                 return true;
             }
             else {
@@ -385,7 +389,7 @@ public class Game {
                     drawCard(1);
 
                     // Check if deck is empty
-                    isDeckEmpty();
+                    deckEmpty();
 
                     // Player can play after drawing one card
                     cardIndex = chooseCard(true);
@@ -394,19 +398,22 @@ public class Game {
                     if (cardIndex == -1) {
                         passTurn();
                     }
+                    // Play card
                     else {
                         playCard(cardIndex);
                     }
                 }
             }
+            // Play card
             else {
                 playCard(cardIndex);
             }
 
+            // Iterator defines next player
             nextPlayer();
         }
 
-        // To do
-        System.out.println("Method Game.play() not implemented...");
+        // Loop ended: game is over!
+        printWinner();
     }
 }

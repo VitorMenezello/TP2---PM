@@ -40,9 +40,4 @@ public class Card {
     public boolean isShuffled(){
         return this.shuffled;
     }
-
-    public String toString() {
-        return this.value + " " + this.suit;
-    }
-
 }

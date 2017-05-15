@@ -35,7 +35,7 @@ public class HumanPlayer extends Player {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } while ((input != "Paus") && (input != "Espadas") && (input != "Copas") && (input != "Ouros"));
+        } while (!input.matches("Paus") && !input.matches("Espadas") && !input.matches("Copas") && !input.matches("Ouros"));
         return input;
     }
 

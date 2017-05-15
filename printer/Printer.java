@@ -4,17 +4,7 @@ import deck.Card;
 
 import java.util.ArrayList;
 
-/**
- * Created by Vitor on 13/05/2017.
- */
 public class Printer {
-
-    /*
-    public Printer() {
-
-    }
-    */
-
     // Print card
     public void printCard(Card card){
         switch (card.getValue()){
@@ -105,7 +95,12 @@ public class Printer {
 
     public void printMaumau(int player, int totalCards){
         printPlayer(player, totalCards);
-        System.out.println (": MAU MAU!");
+        System.out.println(": MAU MAU!");
+        System.out.println();
+    }
+
+    public void printWinner(int player){
+        System.out.println("Parabéns Jogador " + player + ", você venceu o jogo!");
         System.out.println();
     }
 

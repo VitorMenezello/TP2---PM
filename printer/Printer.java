@@ -96,7 +96,7 @@ public class Printer {
         System.out.println();
     }
 
-        public void printPlay(int player, int totalCards, Card playedCard){
+    public void printPlay(int player, int totalCards, Card playedCard){
         printPlayer(player, totalCards);
         System.out.print("jogou a carta: ");
         printCard(playedCard);
@@ -125,6 +125,4 @@ public class Printer {
         System.out.println("Naipe escolhido: " + suit);
         System.out.println();
     }
-
-    //
 }

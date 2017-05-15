@@ -13,6 +13,7 @@ public class CardDeck {
         initialiseDeck();
     }
 
+    /* Initialising deck */
     private void initialiseDeck(){
         fillSuit("Paus");
         fillSuit("Copas");
@@ -61,42 +62,34 @@ public class CardDeck {
         for(int i = 0; i < this.deck.size(); i++){
             Card deckCard = this.deck.get(i);
             deckCard.setShuffled(false);
-            deckCard.setOpen(false);
             this.deck.set(i, deckCard);
         }
     }
 
+    /* Deck methods */
     public ArrayList<Card> getDeck() {
         return this.deck;
     }
 
-    /* Transfer a card between two decks */
-    public void transferCard(Card card, CardDeck receiver) {
-        // Remove card from transferring deck
-        int index = this.deck.indexOf(card);
-        System.out.println("Index = " + index);
-
-
-        // Add card to receiving deck
-        receiver.addCard(card);
-
-        this.deck.remove(index);
+    public int getSize(){
+        return this.deck.size();
     }
 
-    /* Remove and return card at the top of the deck */
+    /* Card methods */
+    // Remove and return card at the top of the deck
     public Card drawCard() {
         Card card = this.deck.get(0);
         this.deck.remove(0);
-
         return card;
     }
 
-    /* Add a card to the deck */
-    public void addCard(Card card) {
-        this.deck.add(0, card);
-    }
-
+    // Get the card at the top of the deck
     public Card getTopCard() {
         return this.deck.get(0);
+    }
+
+    // Add a card to the deck
+    public void addCard(Card card) {
+        this.deck.add(0, card);
     }
 }

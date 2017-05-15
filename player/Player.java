@@ -15,6 +15,8 @@ public abstract class Player {
         this.printer = new Printer();
     }
 
+    /* Concrete methods */
+
     /* Get methods */
     // Get the card at the top of the drawing stack
     public void drawCard(CardDeck drawingStack) {
@@ -44,6 +46,8 @@ public abstract class Player {
         this.hand.remove(index);
         this.numCards--;
     }
+
+    /* Abstract methods */
 
     /* Reaction to valid or invalid plays methods */
     public abstract void invalidPlay();

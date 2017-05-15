@@ -40,7 +40,7 @@ public class CardDeck {
         ArrayList shuffledDeck = new ArrayList();
         Random random = new Random();
         for(int i = 0; i < this.deck.size(); i++) {
-            boolean cardReplaced = false;
+            boolean cardReplaced;
             do {
                 cardReplaced = false;
                 int selectedCardIndex = ((Math.abs(random.nextInt()) % this.deck.size()));

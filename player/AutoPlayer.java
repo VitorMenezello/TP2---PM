@@ -2,46 +2,34 @@ package player;
 
 import deck.Card;
 
-public class AutoPlayer extends  Player{
-    public boolean validCard(Card playedCard, Card topCard, boolean activeSeven, int totalSevens, String chosenSuit){
-        if ((topCard.getValue() == 7)&&(activeSeven)){
-            if (playedCard.getValue() == 7){
-                totalSevens++;
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else if (topCard.getValue() == 11){
-            if (playedCard.getSuit() == chosenSuit){
-                return true;
-            }
-            else if (playedCard.getValue() == 11){
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else if (topCard.getValue() == playedCard.getValue()){
-            return true;
-        }
-        else if (topCard.getSuit() == playedCard.getSuit()){
-            return true;
-        }
-        else if (playedCard.getValue() == 11){
-            return true;
+public class AutoPlayer extends Player{
+    private int search = 0;
+    private boolean playJack = false;
+
+    @Override
+    public void invalidPlay(){
+        if (this.search != this.getHand().size() - 1){
+            this.search++;
         }
         else {
-            return false;
+            if (!this.playJack){
+                this.playJack = true;
+                this.search = 0;
+            }
+            else {
+                this.search = -1;
+            }
         }
     }
 
     @Override
-    public void invalidPlay(){
+    public void validPlay() throws InterruptedException {
+        Thread.sleep(1000);
+        this.playJack = false;
+        this.search = 0;
     }
 
+    // IA section, if it would be implemented
     @Override
     public String chooseSuit(){
         return this.getCard(0).getSuit();
@@ -49,14 +37,16 @@ public class AutoPlayer extends  Player{
 
     @Override
     public int chooseMove(Card topCard, boolean draw, boolean activeSeven, int totalSevens, String chosenSuit){
-        if (!draw){
+        if ((this.search == 0) && (!this.playJack)){
             this.getPrinter().printTopCard(topCard);
         }
-        for (int i = 0; i < this.getHand().size(); i++) {
-            if (validCard(this.getCard(i), topCard, activeSeven, totalSevens, chosenSuit)) {
-                return i;
+        if (!this.playJack){
+            if (this.getCard(this.search).getValue() == 11){
+                if (this.search != this.getHand().size() - 1){
+                    this.search++;
+                }
             }
         }
-        return -1;
+        return this.search;
     }
 }

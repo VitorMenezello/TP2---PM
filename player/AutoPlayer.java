@@ -3,6 +3,8 @@ package player;
 import deck.Card;
 
 public class AutoPlayer extends Player{
+    // Primitive AI: AutoPlayer chooses to save J's rather than play them as first option
+    // Next step: AutoPlayer saves 7's to use if someone it close to winning
     private int search = 0;
     private boolean playJack = false;
 
@@ -29,7 +31,6 @@ public class AutoPlayer extends Player{
         this.search = 0;
     }
 
-    // IA section, if it would be implemented
     @Override
     public String chooseSuit(){
         return this.getCard(0).getSuit();
@@ -37,7 +38,7 @@ public class AutoPlayer extends Player{
 
     @Override
     public int chooseMove(Card topCard, boolean draw, boolean activeSeven, int totalSevens, String chosenSuit){
-        if ((this.search == 0) && (!this.playJack)){
+        if ((this.search == 0) && (!this.playJack) && (!draw)){
             this.getPrinter().printTopCard(topCard);
         }
         if (!this.playJack){

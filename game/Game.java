@@ -301,7 +301,7 @@ public class Game {
             }
         }
         else if (topCard.getValue() == 11){
-            if (chosenCard.getSuit() == this.chosenSuit){
+            if (chosenCard.getSuit().matches(this.chosenSuit)){
                 return true;
             }
             else if (chosenCard.getValue() == 11){
@@ -315,7 +315,7 @@ public class Game {
         else if (topCard.getValue() == chosenCard.getValue()){
             return true;
         }
-        else if (topCard.getSuit() == chosenCard.getSuit()){
+        else if (topCard.getSuit().matches(chosenCard.getSuit())){
             return true;
         }
         else if (chosenCard.getValue() == 11){

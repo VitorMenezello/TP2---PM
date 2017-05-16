@@ -66,7 +66,12 @@ public class Printer {
 
     // Print game flow
     public void printPlayer(int player, int totalCards){
-        System.out.print("Jogador " + player + " [" + totalCards + "] ");
+        if (player == 0){
+            System.out.print("Jogador humano [" + totalCards + "] ");
+        }
+        else {
+            System.out.print("Jogador " + player + " [" + totalCards + "] ");
+        }
     }
 
     public void printSkip(int player, int totalCards){

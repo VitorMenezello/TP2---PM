@@ -349,6 +349,11 @@ public class Game {
         specialCard(playedCard);
     }
 
+    // Prints a line break
+    public void finishPlay(){
+        this.printer.printLineBreak();
+    }
+
     // A random suit is set to start the game when the first card is a Jack
     public void randomSuit(){
         this.chosenSuit = this.playingStack.getTopCard().getSuit();
@@ -408,6 +413,9 @@ public class Game {
             else {
                 playCard(cardIndex);
             }
+
+            // Finish play
+            finishPlay();
 
             // Iterator defines next player
             nextPlayer();

@@ -98,6 +98,11 @@ public class Printer {
         System.out.println();
     }
 
+    public void printLineBreak(){
+        System.out.println("------------------------------------------------------------------");
+        System.out.println();
+    }
+
     public void printMaumau(int player, int totalCards){
         printPlayer(player, totalCards);
         System.out.println(": MAU MAU!");

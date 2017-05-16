@@ -56,7 +56,7 @@ public class Printer {
     }
 
     public void printSuitOptions(){
-        System.out.println("Escolha um naipe digitando seu nome:");
+        System.out.println("Escolha um naipe digitando um dos nomes a seguir:");
         System.out.println("Paus");
         System.out.println("Espadas");
         System.out.println("Copas");
